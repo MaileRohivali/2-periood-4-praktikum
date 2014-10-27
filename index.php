@@ -1,8 +1,9 @@
 <?php if(isset($_POST["submit"])) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$message = "Vormis esines vigu!";}
-	else {$message = "Palun logi sisse!";}
+	$message = "Parool on vale!";
+	echo "<style> .error {border: 2px dashed red}</style>";
+	} else {$message = "Palun logi sisse!";}
 ?>
 <!DOCTYPE>
 <html>
@@ -26,8 +27,10 @@
 	<body>
 		<h2><?php echo $message ;?></h2>
 		<form action="" method="post">
-			<span>Username:</span><input type="text" name="username"><br>
-			<span>Password:</span><input type="password" name="password"><br>
+			<span>Username:</span><input type="text" name="username" value="<?php if (isset($_POST["submit"])){
+			$username = $_POST['username'];
+			echo $username;}?>"><br>
+			<span>Password:</span><input type="password" name="password" class="error"><br>
 			<span>Saada</span><input type="submit" value="Saada" name="submit"><br>
 		</form> 
 	</body>
